@@ -12,7 +12,7 @@ jobs:
       - checkout
       - continuation/continue:
           configuration_path: .circleci/config.yml.old
-  build:
+  new-build:
     docker:
       - image: cimg/ruby:2.7.2
     steps:
@@ -23,4 +23,6 @@ workflows:
   setup:
     jobs:
       - setup
-      - build
+  new-build-workflow:
+    jobs:
+      - new-build
